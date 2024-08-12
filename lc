@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Function to display the contents of a directory recursively
+display_contents() {
+    local folder="$1"
+    local indent="$2"
+
+    # List all files and folders
+    for item in "$folder"/*; do
+        if [ -d "$item" ]; then
+            # If it's a directory, print it in blue
+            echo -e "${indent}\e[34m$(basename "$item")\e[0m"
+            # Recursively call the function with increased indent
+            display_contents "$item" "    $indent"
+        elif [ -f "$item" ]; then
+            # If it's a file, print it in green
+            echo -e "${indent}\e[32m$(basename "$item")\e[0m"
+        fi
+    done
+}
+
+# Starting point of the script
+start_folder="${1:-.}"
+
+# Call the function with the initial folder and no indent
+display_contents "$start_folder" ""
