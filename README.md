@@ -18,7 +18,8 @@ Follow these steps to download, install, and use `lc`:
 Download the `lc` script using `curl`:
 
 ```bash
-curl -o lc https://github.com/80mahd08/linux-command-list-content/lc
+curl -o lc https://raw.githubusercontent.com/80mahd08/linux-command-list-content/main/lc
+
 ```
 
 Or you can create the script manually:
